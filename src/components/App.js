@@ -6,6 +6,11 @@ import UP_ARROW from './assets/up_arrow.svg';
 import DOWN_ARROW from './assets/down_arrow.svg';
 import RETURN_ICN from './assets/return_icn.svg';
 
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+
+
 // import CKEditor from '@ckeditor/ckeditor5-react';
 
 // import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
@@ -67,7 +72,7 @@ class App extends Component {
                     - The ground for the disciplinary sanction <br />
                     - The disciplinary sanction imposed by OMARA <br />
                     - Relevant legislative (Act and Code) provisions</p>
-                    {/* <CKEditor
+                    <CKEditor
                         editor={ ClassicEditor }
                         config={{
                             toolbar: [ 'heading', '|', 'italic', 'bold', 'bulletedList', 'numberedList', '|', 'undo', 'redo' ],
@@ -94,7 +99,7 @@ class App extends Component {
                         onFocus={ ( event, editor ) => {
                             console.log( 'Focus.', editor );
                         } }
-                    /> */}
+                    />
                 </div>
 
                 <div className='row questionFotter'>
