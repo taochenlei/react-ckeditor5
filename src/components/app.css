@@ -1,0 +1,186 @@
+.container-lg {
+    width: 1920px;
+    height: 1080px;
+}
+.row {
+    margin: 0px;
+}
+.questionHeader {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 107px;
+    background: #CC0000 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.codeOfConduct{
+    top: 24px;
+    left: 596px;
+}
+.codeOfConduct h1{
+    font-family: 'Jotia', Arial, serif;
+    font: Bold 32px/38px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1; 
+}
+.codeOfConduct p {
+    font-family: 'Roboto', Arial, serif;
+    font: Regular 16px/21px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.logo{
+    top: 38px;
+}
+
+.question {
+    position: relative;
+    top: 170px;
+    width: 720px;
+    height: 833px;
+}
+
+.question h1 {
+    font-family: 'Jotia', Arial, serif;
+    font: Bold 24px/29px;
+    letter-spacing: 0px;
+    color: #292929;
+    opacity: 0.8;
+}
+
+.question p {
+    font-family: 'Roboto', Arial, serif;
+    font: Regular 16px/21px;
+    letter-spacing: 0px;
+    color: #292929;
+    opacity: 0.8;
+}
+
+.ck-editor__editable_inline {
+    height: 260px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 20px #00000033;
+    opacity: 1;
+}
+
+.ck.ck-editor__editable > .ck-placeholder::before {
+    text-align: left;
+    font-family: 'Roboto', Arial, serif;
+    font: Italic 16px/21px;
+    letter-spacing: 0px;
+    color: #737D8B;
+    opacity: 1; 
+}
+
+.questionFotter {
+    background: #E7E7E7 0% 0% no-repeat padding-box;
+    height: 60px;
+    width: 100%;
+    position: relative;
+}
+
+.lock {
+    background: #E7E7E7 0% 0% no-repeat padding-box;
+    opacity: 1;
+    height: 60px;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+}
+.lock img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 17px;
+    opacity: 0.5;
+}
+.lock p {
+    position: relative;
+    margin-left: 16px;
+    display: inline;
+    top: 20px;
+    font-family: 'Roboto', Arial, serif;
+    font: Regular 16px/21px;
+    letter-spacing: 0px;
+    color: #292929;
+    opacity: 0.5;
+}
+
+.progressBar {
+    background: #292929 0% 0% no-repeat padding-box;
+    opacity: 1;
+    height: 80px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.progressBar1 {
+    left: 100px;
+    margin-top: 25px;
+}
+img[alt="Up Arrow"] {
+    width: 30px;
+    height: 30px;
+}
+img[alt="Down Arrow"] {
+    width: 30px;
+    height: 30px;
+}
+
+.progressBar2 {
+    right: 150px;
+    margin-top: 24px;
+}
+.progressBar2 p{
+    text-align: left;
+    font-family: 'Roboto', Arial, serif;
+    font: Medium 11px/15px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.progress {
+    margin-top: -10px;
+    height: 3px;
+    width: 200px;
+    background: rgba(255,255,255,.19);
+}
+.progress-bar {
+    height: 3px;
+    opacity: 1;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    width: 25%;
+}
+
+.progressBar3 {
+    right: 330px;
+}
+.returnButton {
+    margin-top: 16px;
+    width: 206px;
+    height: 40px;
+    background: #CC0000 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: 0px;
+    padding: 0px;
+}
+.returnButton p {
+    display: inline;
+    text-align: center;
+    font: Regular 14px/19px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.returnIcon {
+    height: 24px;
+    width: 68px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 4px;
+    display: inline-block;
+}
