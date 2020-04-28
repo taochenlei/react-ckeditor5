@@ -9,60 +9,16 @@ import RETURN_ICN from './assets/return_icn.svg';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-
-
-// import CKEditor from '@ckeditor/ckeditor5-react';
-
-// import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-// import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-// import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-// import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-// import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-
-// import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
-
-
-
-
-// import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-
-// import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-// import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
-// import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
-// import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-// import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-// import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
-// import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
-// import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
-// import Heading from '@ckeditor/ckeditor5-heading/src/heading';
-// import Image from '@ckeditor/ckeditor5-image/src/image';
-// import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
-// import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
-// import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
-// import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
-// import Indent from '@ckeditor/ckeditor5-indent/src/indent';
-// import Link from '@ckeditor/ckeditor5-link/src/link';
-// import List from '@ckeditor/ckeditor5-list/src/list';
-// import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
-// import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-// import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
-// import Table from '@ckeditor/ckeditor5-table/src/table';
-// import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-// import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
-
-// import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';     // <--- ADDED
-
-
 class App extends Component {
     render() {
         return (
-            <div class="container-lg">
-                <div class="row questionHeader">
-                    <div class="col-11 codeOfConduct">
+            <div className='container-fluid'>
+                <div className='questionHeader'>
+                    <div className='codeOfConduct'>
                         <h1>Code of Conduct Activities</h1>
                         <p>Questions for you on the code of conduct</p>
                     </div>
-                    <div class="col-1 logo">
+                    <div class="griffithLogo">
                         <img src={GRIFFITH_LOGO} alt="Griffith Logo" />
                     </div>
                 </div>
@@ -102,33 +58,37 @@ class App extends Component {
                     />
                 </div>
 
-                <div className='row questionFotter'>
+                <div className='questionFotter'>
                     <div className='lock'>
                         <img src={LOCK_ICN} alt="Lock Icon" />
                         <p>After you have answered the question please view this exemplar answer</p>
                     </div>
-                </div>
-                <div className='row progressBar'>
-                        <div className='col'></div>
-                        <div className='col progressBar1'>
-                            <img src={UP_ARROW} alt="Up Arrow" />
-                            <img src={DOWN_ARROW} alt="Down Arrow" />
-                        </div>
-                        <div className='col progressBar2'>
-                            <p>20% completed (1/5)</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className='progressBarContainer'>
+                        <div className='progressBar'>
+                            <div className='progressBar1'>
+                                <img src={UP_ARROW} alt="Up Arrow" />
+                                <img src={DOWN_ARROW} alt="Down Arrow" />
                             </div>
-                        </div>
-                        <div className='col progressBar3'>
-                            <button className='returnButton'>
-                                <p>Save & Continue</p>
-                                <div className='returnIcon'>
-                                    <p>Shift +</p>
-                                    <img src={RETURN_ICN} alt="Return Icon" />
+
+                            <div className='progressBar2'>
+                                <p>20% completed (1/5)</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                            </button>
+                            </div>
+
+                            <div className='progressBar3'>
+                                <button className='returnButton'>
+                                    <p>Save & Continue</p>
+                                    <div className='returnIcon'>
+                                        <p>Shift +</p>
+                                        <img src={RETURN_ICN} alt="Return Icon" />
+                                    </div>
+                                </button>
+                            </div>
+
                         </div>
+                    </div>
                 </div>
             </div>
         );
