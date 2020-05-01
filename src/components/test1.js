@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import './app.css';
+import './test1.css';
 import GRIFFITH_LOGO from './assets/Griffith Logo.png';
 import LOCK_ICN from './assets/lock_icn.svg';
 import UP_ARROW from './assets/up_arrow.svg';
 import DOWN_ARROW from './assets/down_arrow.svg';
 import RETURN_ICN from './assets/return_icn.svg';
 
-import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
-class App extends Component {
+class Test1 extends Component {
     render() {
         return (
             <div className='container-fluid'>
@@ -28,34 +25,6 @@ class App extends Component {
                     - The ground for the disciplinary sanction <br />
                     - The disciplinary sanction imposed by OMARA <br />
                     - Relevant legislative (Act and Code) provisions</p>
-                    <CKEditor
-                        editor={ ClassicEditor }
-                        config={{
-                            toolbar: [ 'heading', '|', 'italic', 'bold', 'bulletedList', 'numberedList', '|', 'undo', 'redo' ],
-                            heading: {
-                                options: [
-                                    { model: 'heading2', view: 'h2', title: 'Heading', class: 'ck-heading_heading2' },
-                                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }
-                                ]
-                            },
-                            placeholder: "Enter your response here"
-                        }}
-                        // data="<p>Hello from CKEditor 5!</p>"
-                        onInit={ editor => {
-                            // You can store the "editor" and use when it is needed.
-                            console.log( 'Editor is ready to use!', editor );
-                        } }
-                        onChange={ ( event, editor ) => {
-                            const data = editor.getData();
-                            console.log( { event, editor, data } );
-                        } }
-                        onBlur={ ( event, editor ) => {
-                            console.log( 'Blur.', editor );
-                        } }
-                        onFocus={ ( event, editor ) => {
-                            console.log( 'Focus.', editor );
-                        } }
-                    />
                 </div>
 
                 <div className='questionFotter'>
@@ -95,9 +64,4 @@ class App extends Component {
     }
 }
 
-export default App;
-
-
-
-
-
+export default Test1;

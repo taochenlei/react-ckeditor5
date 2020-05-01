@@ -1,0 +1,36 @@
+create table QUESTIONS
+(
+  ID                        NUMBER(10) not null,
+  LAST_MODIFIED_USER_ID     NUMBER(10) not null,
+  CREATOR_USER_ID           NUMBER(10) not null,
+  MEDIA_ID                  NUMBER(10) not null,
+  QUESTION_SET_ID           NUMBER(10) not null,
+  QUESTION_TYPE_ID          NUMBER(10) not null,
+  TITLE                     VARCHAR2(500),
+  DISPLAY_ORDER             NUMBER(5),
+  OUTPUT_TITLE              VARCHAR2(500),
+  VISIBLE                   NUMBER(1) default 1 not null,
+  PUBLISHED                 NUMBER(1) default 1 not null,
+  CREATION_DATE             TIMESTAMP default CURRENT_TIMESTAMP,
+  LAST_MODIFIED_DATE        TIMESTAMP default CURRENT_TIMESTAMP,
+  EXAMPLE_CONTENT           VARCHAR2(4000),
+  SHOW_EXAMPLE_AFTER_SUBMIT NUMBER(1) default 1 not null,
+  SAVE_HISTORY              NUMBER(1) default 1 not null,
+  SHOW_HISTORY              NUMBER(1) default 1 not null,
+  SHOW_RESPONSE_CLEAR       NUMBER(1) default 1 not null
+);
+
+
+
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 3, 3, 1, 1, 1, 'Question One SA', 1, 'Question 1 Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 2, 3, 1, 1, 2, 'Question Two LA', 2, 'Question 2 Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 1, 1, 1, 1, 3, 'Question Three MC', 3, 'Question 3 Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 3, 2, 1, 1, 4, 'Question Four MS', 4, 'Question 4 Output');
+
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 7, 4, 1, 2, 1, 'Identify the scope statement of the project.', 1, 'Question ... Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 6, 4, 1, 2, 1, 'Identify as many stakeholders in the project as possible.', 2, 'Question ... Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 1, 4, 1, 2, 2, 'Identify specifically the key stakeholders - those whose support or actions will be critical for the success of the project?', 3, 'Question ... Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 7, 4, 1, 2, 1, 'What is the different between a project and a process?', 4, 'Question ... Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 2, 6, 1, 2, 2, 'What is the triple constraint of Project Management?', 5, 'Question ... Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 4, 7, 1, 2, 3, 'What are the knowledge areas for Project Management?', 6, 'Question ... Output');
+insert into QUESTIONS (ID, LAST_MODIFIED_USER_ID, CREATOR_USER_ID, MEDIA_ID, QUESTION_SET_ID, QUESTION_TYPE_ID, TITLE, DISPLAY_ORDER, OUTPUT_TITLE) values (QUESTIONS_SEQ.NEXTVAL, 4, 7, 1, 2, 1, 'What are the main ideas that you have learnt in Module 1 - An introduction to project management?', 7, 'Question ... Output');

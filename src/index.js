@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import CKeditor5 from './components/CKEditor5';
 
 ReactDOM.render(
-  <App />,
+  <CKeditor5 />,
   document.getElementById('root')
 );
