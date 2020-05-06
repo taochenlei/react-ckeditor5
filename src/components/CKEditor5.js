@@ -39,7 +39,7 @@ class CKeditor5 extends Component {
                     </div>
                 </div>
                 <div className='questionSection'>
-                    <div className='question'>
+                    <div className='questions'>
                         <h1>{this.state.questions[this.state.currentQuestionId].title}</h1>
                         <p>{this.state.questions[this.state.currentQuestionId].content}</p>
                         <CKEditor

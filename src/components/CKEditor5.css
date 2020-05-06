@@ -35,7 +35,7 @@
 .questionSection {
     height: 833px;
 }
-.question {
+.questions {
     height: 90%;
     margin: auto;
     width: 720px;
@@ -43,14 +43,14 @@
     flex-direction: column;
     justify-content: center;
 }
-.question h1 {
+.questions h1 {
     font-family: 'Jotia', Arial, serif;
     font: Bold 24px/29px;
     letter-spacing: 0px;
     color: #292929;
     opacity: 0.8;
 }
-.question p {
+.questions p {
     font-family: 'Roboto', Arial, serif;
     font: Regular 16px/21px;
     letter-spacing: 0px;
