@@ -8,16 +8,27 @@ import DOWN_ARROW from './assets/down_arrow.svg';
 import RETURN_ICN from './assets/return_icn.svg';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from '@jesse541/ckeditor5-build-classic';
 
-const db = data;
-console.log(db.default.questions);
+class CKeditor5 extends Component {
 
+    previousQuestionId = () => {
+        const newID = this.state.currentQuestionId - 1
+        if (newID >= 0 && newID < this.state.questions.length) {
+            this.setState({currentQuestionId: newID}, () => {console.log(this.state)})
+        }
+    }
+    nextQuestionId = () => {
+        const newID = this.state.currentQuestionId + 1
+        if (newID >= 0 && newID < this.state.questions.length) {
+            this.setState({currentQuestionId: newID}, () => {console.log(this.state)})
+        }
+    }
 
-class CKeditor5 extends Component { 
+    state = { questions: data.questions, currentQuestionId: 0};
     render() {
         return (
-            <div className='container-fluid'>
+            <div className='multiQuestionsView'>
                 <div className='questionHeader'>
                     <div className='codeOfConduct'>
                         <h1>Code of Conduct Activities</h1>
@@ -27,58 +38,58 @@ class CKeditor5 extends Component {
                         <img src={GRIFFITH_LOGO} alt="Griffith Logo" />
                     </div>
                 </div>
-                <div className='mx-auto question'>
-                    <h1>2.2 Summary of Disciplinary Decisions</h1>
-                    <p>Choose one or two of the OMARA disciplinary decisions against registered agents that are published on the OMARA website and summarise the decisions including: <br />
-                    - The ground for the disciplinary sanction <br />
-                    - The disciplinary sanction imposed by OMARA <br />
-                    - Relevant legislative (Act and Code) provisions</p>
-                    <CKEditor
-                        editor={ ClassicEditor }
-                        config={{
-                            toolbar: [ 'heading', 'alignment:justify', 'alignment:left', 'alignment:right', '|', 'bold', 'underline', 'italic', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo' ],
-                            heading: {
-                                options: [
-                                    { model: 'heading2', view: 'h2', title: 'Heading', class: 'ck-heading_heading2' },
-                                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }
-                                ]
-                            },
-                            placeholder: "Enter your response here",
-                            wordCount: {
-                                onUpdate: stats => {
-                                    // Prints the current content statistics.
-                                    console.log( `Characters: ${ stats.characters }\nWords: ${ stats.words }` );
+                <div className='questionSection'>
+                    <div className='question'>
+                        <h1>{this.state.questions[this.state.currentQuestionId].title}</h1>
+                        <p>{this.state.questions[this.state.currentQuestionId].content}</p>
+                        <CKEditor
+                            editor={ ClassicEditor }
+                            config={{
+                                toolbar: [ 'heading', 'alignment:justify', 'alignment:left', 'alignment:right', '|', 'bold', 'underline', 'italic', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo' ],
+                                heading: {
+                                    options: [
+                                        { model: 'heading2', view: 'h2', title: 'Heading', class: 'ck-heading_heading2' },
+                                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }
+                                    ]
+                                },
+                                placeholder: "Enter your response here",
+                                wordCount: {
+                                    onUpdate: stats => {
+                                        // Prints the current content statistics.
+                                        console.log( `Characters: ${ stats.characters }\nWords: ${ stats.words }` );
+                                    }
                                 }
-                            }
-                        }}
-                        // data="<p>Hello from CKEditor 5!</p>"
-                        onInit={ editor => {
-                            // You can store the "editor" and use when it is needed.
-                            console.log( 'Editor is ready to use!', editor );
-                        } }
-                        onChange={ ( event, editor ) => {
-                            const data = editor.getData();
-                            console.log( { event, editor, data } );
-                        } }
-                        onBlur={ ( event, editor ) => {
-                            console.log( 'Blur.', editor );
-                        } }
-                        onFocus={ ( event, editor ) => {
-                            console.log( 'Focus.', editor );
-                        } }
-                    />
+                            }}
+                            // data="<p>Hello from CKEditor 5!</p>"
+                            onInit={ editor => {
+                                // You can store the "editor" and use when it is needed.
+                                console.log( 'Editor is ready to use!', editor );
+                            } }
+                            onChange={ ( event, editor ) => {
+                                const data = editor.getData();
+                                console.log( { event, editor, data } );
+                            } }
+                            onBlur={ ( event, editor ) => {
+                                console.log( 'Blur.', editor );
+                            } }
+                            onFocus={ ( event, editor ) => {
+                                console.log( 'Focus.', editor );
+                            } }
+                        />
+                    </div>
                 </div>
-
-                <div className='questionFotter'>
+                <div className='questionFooter1'>
                     <div className='lock'>
                         <img src={LOCK_ICN} alt="Lock Icon" />
                         <p>After you have answered the question please view this exemplar answer</p>
                     </div>
+                </div>
+                <div className='questionFooter2'>
                     <div className='progressBarContainer'>
                         <div className='progressBar'>
                             <div className='progressBar1'>
-                                <img src={UP_ARROW} alt="Up Arrow" />
-                                <img src={DOWN_ARROW} alt="Down Arrow" />
+                                <img src={UP_ARROW} alt="Up Arrow" onClick={this.previousQuestionId} />
+                                <img src={DOWN_ARROW} alt="Down Arrow" onClick={this.nextQuestionId} />
                             </div>
 
                             <div className='progressBar2'>
@@ -97,7 +108,6 @@ class CKeditor5 extends Component {
                                     </div>
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -107,8 +117,4 @@ class CKeditor5 extends Component {
 }
 
 export default CKeditor5;
-
-
-
-
 

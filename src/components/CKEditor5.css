@@ -1,19 +1,20 @@
-.container-fluid {
-    padding: 0px;
-}
+/* .multiQuestionsView {
+    background: blue;
+} */
 .questionHeader {
     height: 107px;
     background: #CC0000 0% 0% no-repeat padding-box;
-    opacity: 1;
     display: flex;
 }
+.questionHeader > div {
+    align-self: center;
+}
 .codeOfConduct {
-    margin: 0 auto;
+    margin: auto;
     width: 550px;
-    height: 100%;
+    height: 80%;
 }
 .codeOfConduct h1{
-    padding-top: 24px;
     font-family: 'Jotia', Arial, serif;
     font: Bold 32px/38px;
     letter-spacing: 0px;
@@ -28,20 +29,19 @@
     opacity: 1;
 }
 .griffithLogo {
-    width: 190px;
-    line-height: 107px;
-    text-align: center;
-    font-size: 0;
-}
-.griffithLogo img{
-    vertical-align: middle;
+    margin-right: 32px;
 }
 
-.question {
-    position: relative;
-    top: 170px;
-    width: 720px;
+.questionSection {
     height: 833px;
+}
+.question {
+    height: 90%;
+    margin: auto;
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .question h1 {
     font-family: 'Jotia', Arial, serif;
@@ -72,9 +72,9 @@
     opacity: 1; 
 }
 
-.questionFotter {
+.questionFooter1 {
     background: #E7E7E7 0% 0% no-repeat padding-box;
-    height: 140px;
+    height: 60px;
 }
 .lock {
     margin: auto;
@@ -100,6 +100,9 @@
     opacity: 0.5;
 }
 
+.questionFooter2 {
+    height: 80px;
+}
 .progressBarContainer {
     background: #292929 0% 0% no-repeat padding-box;
     width: 100%;
@@ -128,7 +131,6 @@ img[alt="Down Arrow"] {
 .progressBar2 {
     margin-left: 170px;
     width: 200px;
-    /* line-height: 80px; */
 }
 .progressBar2 p{
     text-align: left;
