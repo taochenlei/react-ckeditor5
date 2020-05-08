@@ -5,28 +5,73 @@ import GRIFFITH_LOGO from './assets/Griffith Logo.png';
 import LOCK_ICN from './assets/lock_icn.svg';
 import UP_ARROW from './assets/up_arrow.svg';
 import DOWN_ARROW from './assets/down_arrow.svg';
-import RETURN_ICN from './assets/return_icn.svg';
+import xIcon from './assets/xIcon.svg';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@jesse541/ckeditor5-build-classic';
 
 class CKeditor5 extends Component {
+    state = {
+        questions: data.questions, 
+        currentQuestionId: 0,
+        currentData: null,
+        words: 0,
+        showLockBar: false,
+        showExamplerAnswer: false
+    };
 
-    previousQuestionId = () => {
-        const newID = this.state.currentQuestionId - 1
+    nextQuestionId = (way) => {
+        const newID = way === 'up' ? this.state.currentQuestionId - 1 : this.state.currentQuestionId + 1;
         if (newID >= 0 && newID < this.state.questions.length) {
-            this.setState({currentQuestionId: newID}, () => {console.log(this.state)})
+            this.setState({
+                currentQuestionId: newID,
+                currentData: '',
+                showExamplerAnswer: false
+            })
         }
     }
-    nextQuestionId = () => {
-        const newID = this.state.currentQuestionId + 1
-        if (newID >= 0 && newID < this.state.questions.length) {
-            this.setState({currentQuestionId: newID}, () => {console.log(this.state)})
+    
+    saveAnswer = () => {
+        const currentAnswer = this.state.currentData;
+        if (currentAnswer) {
+            const questions = this.state.questions;
+            questions[this.state.currentQuestionId].answer = currentAnswer;
+            this.setState({
+                questions,     
+            });
+        } else {
+            console.log(`failed. ${currentAnswer}`);
+        }
+    }
+    clickCloseExampleAnswer = () => {
+        this.setState({showExamplerAnswer: false})
+    }
+    clickShowExamplerAnswer = () => {
+        const answer = this.state.questions[this.state.currentQuestionId].answer;
+        // const examplerAnswer = this.state.questions[this.state.currentQuestionId]["example-answer"];
+        if (answer) {
+            this.setState({showExamplerAnswer: true})
+        } else {
+            console.log('can not show exampler answer')
         }
     }
 
-    state = { questions: data.questions, currentQuestionId: 0};
     render() {
+        console.log(this.state);
+
+        const examplerAnswer = this.state.questions[this.state.currentQuestionId]["example-answer"];
+        const answer = this.state.questions[this.state.currentQuestionId].answer;
+        const examplerAnswerStyle = {
+            display: this.state.showExamplerAnswer ? 'flex' : 'none'
+        }
+        const ckeditorStyle = {
+            display: this.state.showExamplerAnswer ? 'none' : 'block'
+        }
+        const lockBarStyle = {
+            display: (examplerAnswer && !this.state.showExamplerAnswer) ? 'block' : 'none',
+            cursor: answer ? 'pointer' : 'auto'
+        };
+
         return (
             <div className='multiQuestionsView'>
                 <div className='questionHeader'>
@@ -42,10 +87,17 @@ class CKeditor5 extends Component {
                     <div className='questions'>
                         <h1>{this.state.questions[this.state.currentQuestionId].title}</h1>
                         <p>{this.state.questions[this.state.currentQuestionId].content}</p>
+                    </div>
+                    <div className='examplerAnswer' style={examplerAnswerStyle}>
+                        <img src={xIcon} alt="xIcon" onClick={this.clickCloseExampleAnswer} />
+                        <h1>Exemplar Answer</h1>
+                        <p>{this.state.questions[this.state.currentQuestionId]["example-answer"]}</p>
+                    </div>
+                    <div className='ckeditor' style={ckeditorStyle}>
                         <CKEditor
                             editor={ ClassicEditor }
                             config={{
-                                toolbar: [ 'heading', 'alignment:justify', 'alignment:left', 'alignment:right', '|', 'bold', 'underline', 'italic', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo' ],
+                                toolbar: [ 'heading', 'alignment:left', 'alignment:justify', 'alignment:right', '|', 'bold', 'underline', 'italic', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo' ],
                                 heading: {
                                     options: [
                                         { model: 'heading2', view: 'h2', title: 'Heading', class: 'ck-heading_heading2' },
@@ -55,62 +107,60 @@ class CKeditor5 extends Component {
                                 placeholder: "Enter your response here",
                                 wordCount: {
                                     onUpdate: stats => {
-                                        // Prints the current content statistics.
-                                        console.log( `Characters: ${ stats.characters }\nWords: ${ stats.words }` );
+                                        this.setState({words: stats.words})
                                     }
                                 }
                             }}
-                            // data="<p>Hello from CKEditor 5!</p>"
-                            onInit={ editor => {
-                                // You can store the "editor" and use when it is needed.
-                                console.log( 'Editor is ready to use!', editor );
-                            } }
-                            onChange={ ( event, editor ) => {
-                                const data = editor.getData();
-                                console.log( { event, editor, data } );
-                            } }
+                            data={this.state.currentData}
+                            // onInit={ editor => {
+                            //     // You can store the "editor" and use when it is needed.
+                            //     console.log( 'Editor is ready to use!', editor );
+                            // } }
+                            // onChange={ ( event, editor ) => {
+                            //     this.setState({currentData: editor.getData()});
+                            //     // const data = editor.getData();
+                            //     // console.log( { event, editor, data } );
+                            // } }
                             onBlur={ ( event, editor ) => {
-                                console.log( 'Blur.', editor );
+                                this.setState({currentData: editor.getData()});
                             } }
-                            onFocus={ ( event, editor ) => {
-                                console.log( 'Focus.', editor );
-                            } }
+                            // onFocus={ ( event, editor ) => {
+                            //     console.log( 'Focus.', editor );
+                            // } }
                         />
+                        <p id='wordCount'>{`${this.state.words} words`}</p>
                     </div>
-                </div>
-                <div className='questionFooter1'>
-                    <div className='lock'>
-                        <img src={LOCK_ICN} alt="Lock Icon" />
-                        <p>After you have answered the question please view this exemplar answer</p>
-                    </div>
-                </div>
-                <div className='questionFooter2'>
-                    <div className='progressBarContainer'>
-                        <div className='progressBar'>
-                            <div className='progressBar1'>
-                                <img src={UP_ARROW} alt="Up Arrow" onClick={this.previousQuestionId} />
-                                <img src={DOWN_ARROW} alt="Down Arrow" onClick={this.nextQuestionId} />
-                            </div>
-
-                            <div className='progressBar2'>
-                                <p>20% completed (1/5)</p>
-                                <div className='progress'>
-                                    <div className='progress-bar' role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-
-                            <div className='progressBar3'>
-                                <button className='returnButton'>
-                                    <p>Save & Continue</p>
-                                    <div className='returnIcon'>
-                                        <p>Shift +</p>
-                                        <img src={RETURN_ICN} alt="Return Icon" />
-                                    </div>
-                                </button>
-                            </div>
+                    <div className='gap'></div>
+                    <div className='lockBar' style={lockBarStyle} onClick={this.clickShowExamplerAnswer} >
+                        <div className='lock'>
+                            <img src={LOCK_ICN} alt="Lock Icon" />
+                            <p>After you have answered the question please view this exemplar answer</p>
                         </div>
                     </div>
                 </div>
+
+                <div className='footer'>
+                    <div className='progressBar'>
+                        <div className='progressBar1'>
+                            <img src={UP_ARROW} alt="Up Arrow" onClick={() => this.nextQuestionId('up')} />
+                            <img src={DOWN_ARROW} alt="Down Arrow" onClick={() => this.nextQuestionId('down')} />
+                        </div>
+
+                        <div className='progressBar2'>
+                            <p>20% completed (1/5)</p>
+                            <div className='progress'>
+                                <div className='progress-bar' role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div className='progressBar3'>
+                            <button className='returnButton' onClick={this.saveAnswer} >
+                                <p>Save</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
             </div>
         );
     }

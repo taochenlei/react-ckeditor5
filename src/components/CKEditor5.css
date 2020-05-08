@@ -1,6 +1,3 @@
-/* .multiQuestionsView {
-    background: blue;
-} */
 .questionHeader {
     height: 107px;
     background: #CC0000 0% 0% no-repeat padding-box;
@@ -33,15 +30,17 @@
 }
 
 .questionSection {
+    display: flex;
     height: 833px;
+    flex-direction: column;
+    align-items: center;
+}
+.questionSection > * ,
+.examplerAnswer > *{
+    width: 720px;
 }
 .questions {
-    height: 90%;
-    margin: auto;
-    width: 720px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-top: 170px;
 }
 .questions h1 {
     font-family: 'Jotia', Arial, serif;
@@ -57,6 +56,46 @@
     color: #292929;
     opacity: 0.8;
 }
+.examplerAnswer {
+    background: #F1F1F1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img[alt="xIcon"] {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    margin-top: 24px;
+    right: 24px;
+    cursor: pointer;
+}
+.examplerAnswer h1 {
+    margin-top: 40px;
+    font: Bold 20px/26px Roboto;
+    letter-spacing: 0px;
+    color: #292929;
+    opacity: 0.8;
+}
+.examplerAnswer p {
+    font: Regular 16px/24px Roboto;
+    letter-spacing: 0px;
+    color: #292929;
+    opacity: 0.8;
+}
+
+#wordCount {
+    position: relative;
+    bottom: 290px;
+    left: 590px;
+    width: 120px;
+    height: 24px;
+    text-align: center;
+    border: #838383 1px solid;
+    border-radius: 4px;
+}
 .ck-editor__editable_inline {
     height: 260px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -66,15 +105,18 @@
 .ck.ck-editor__editable > .ck-placeholder::before {
     text-align: left;
     font-family: 'Roboto', Arial, serif;
-    font: Italic 16px/21px;
+    font: italic 16px/21px;
     letter-spacing: 0px;
     color: #737D8B;
     opacity: 1; 
 }
-
-.questionFooter1 {
-    background: #E7E7E7 0% 0% no-repeat padding-box;
+.gap {
+    flex-grow: 1;
+}
+.lockBar {
+    background: #E7E7E7;
     height: 60px;
+    width: 100%;
 }
 .lock {
     margin: auto;
@@ -99,11 +141,8 @@
     color: #292929;
     opacity: 0.5;
 }
-
-.questionFooter2 {
+.footer {
     height: 80px;
-}
-.progressBarContainer {
     background: #292929 0% 0% no-repeat padding-box;
     width: 100%;
     height: 80px;
@@ -122,12 +161,13 @@ img[alt="Up Arrow"] {
     vertical-align: middle;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 img[alt="Down Arrow"] {
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
-
 .progressBar2 {
     margin-left: 170px;
     width: 200px;
@@ -164,6 +204,7 @@ img[alt="Down Arrow"] {
     opacity: 1;
     border: 0px;
     padding: 0px;
+    cursor: pointer;
 }
 .returnButton p {
     display: inline;
