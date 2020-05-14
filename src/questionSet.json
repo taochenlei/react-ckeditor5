@@ -1,0 +1,607 @@
+{
+    "status": 200,
+    "code": 200,
+    "error": true,
+    "message": "View single Question Set by ID 1",
+    "data": {
+      "id": 1,
+      "title": "1041ENV: Office Layouts",
+      "description": "Description of question set One.",
+      "published": true,
+      "inactive": true,
+      "disclaimer": true,
+      "creation_date": "2020-05-12 20:03:16",
+      "owner": {
+        "id": 3,
+        "name": "Jane Doe"
+      },
+      "group": {
+        "id": 2,
+        "title": "City Planning"
+      },
+      "questions": [
+        {
+          "id": 1,
+          "title": "Question One SA",
+          "question_text": "Question Text",
+          "display_order": "1",
+          "output_title": "Question 1 Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": "example answer for question 1",
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 3,
+            "name": "Jane Doe"
+          },
+          "last_editor": {
+            "id": 3,
+            "name": "Jane Doe"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 1,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Question Two MC",
+          "question_text": "Question Text",
+          "display_order": "2",
+          "output_title": "Question 2 Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": "example answer for question 2",
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 3,
+            "name": "Jane Doe"
+          },
+          "last_editor": {
+            "id": 2,
+            "name": "Ken Yeung"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 2,
+            "title": "Multiple Choice",
+            "description": "Description of Multiple Choice question type.",
+            "use_answers": true,
+            "short_name": "MC"
+          },
+          "response_options": [
+            {
+              "id": 1,
+              "question_id": "2",
+              "title": "Answers Multiple Choice 1",
+              "display_order": "1",
+              "label": "Answer MC 1"
+            },
+            {
+              "id": 2,
+              "question_id": "2",
+              "title": "Answers Multiple Choice 2",
+              "display_order": "2",
+              "label": "Answer MC 2"
+            },
+            {
+              "id": 3,
+              "question_id": "2",
+              "title": "Answers Multiple Choice 3",
+              "display_order": "3",
+              "label": "Answer MC 3"
+            },
+            {
+              "id": 4,
+              "question_id": "2",
+              "title": "Answers Multiple Choice 4",
+              "display_order": "4",
+              "label": "Answer MC 4"
+            }
+          ],
+          "response_count": 2,
+          "my_responses": [
+            {
+              "id": 3,
+              "user_id": "3",
+              "question_id": "2",
+              "team_id": null,
+              "answer": "Janes answer to question 2",
+              "creation_date": "2020-05-12T20:03:19.000000Z",
+              "deleted_at": null
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Question Three MC",
+          "question_text": "Question Text",
+          "display_order": "3",
+          "output_title": "Question 3 Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 1,
+            "name": "Michael Speirs"
+          },
+          "last_editor": {
+            "id": 1,
+            "name": "Michael Speirs"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 2,
+            "title": "Multiple Choice",
+            "description": "Description of Multiple Choice question type.",
+            "use_answers": true,
+            "short_name": "MC"
+          },
+          "response_options": [
+            {
+              "id": 5,
+              "question_id": "3",
+              "title": "Answers Multiple Select 1",
+              "display_order": "1",
+              "label": "Answer MS 1"
+            },
+            {
+              "id": 6,
+              "question_id": "3",
+              "title": "Answers Multiple Select 2",
+              "display_order": "2",
+              "label": "Answer MS 2"
+            },
+            {
+              "id": 7,
+              "question_id": "3",
+              "title": "Answers Multiple Select 3",
+              "display_order": "3",
+              "label": "Answer MS 3"
+            },
+            {
+              "id": 8,
+              "question_id": "3",
+              "title": "Answers Multiple Select 4",
+              "display_order": "4",
+              "label": "Answer MS 4"
+            }
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Identify the scope statement of the project.",
+          "question_text": "Question Text",
+          "display_order": "1",
+          "output_title": "Question ... Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 4,
+            "name": "Brad Harrison"
+          },
+          "last_editor": {
+            "id": 7,
+            "name": "Sean Duffy"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Identify as many stakeholders in the project as possible.",
+          "question_text": "Question Text",
+          "display_order": "2",
+          "output_title": "Question ... Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 4,
+            "name": "Brad Harrison"
+          },
+          "last_editor": {
+            "id": 6,
+            "name": "Steve Coles"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 7,
+          "title": "Identify specifically the key stakeholders - those whose support or actions will be critical for the success of the project?",
+          "question_text": "Question Text",
+          "display_order": "3",
+          "output_title": "Question ... Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 4,
+            "name": "Brad Harrison"
+          },
+          "last_editor": {
+            "id": 1,
+            "name": "Michael Speirs"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 8,
+          "title": "What is the different between a project and a process?",
+          "question_text": "Question Text",
+          "display_order": "4",
+          "output_title": "Question ... Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 4,
+            "name": "Brad Harrison"
+          },
+          "last_editor": {
+            "id": 7,
+            "name": "Sean Duffy"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 9,
+          "title": "What is the triple constraint of Project Management?",
+          "question_text": "Question Text",
+          "display_order": "5",
+          "output_title": "Question ... Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 6,
+            "name": "Steve Coles"
+          },
+          "last_editor": {
+            "id": 2,
+            "name": "Ken Yeung"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 10,
+          "title": "What are the knowledge areas for Project Management?",
+          "question_text": "Question Text",
+          "display_order": "6",
+          "output_title": "Question ... Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 7,
+            "name": "Sean Duffy"
+          },
+          "last_editor": {
+            "id": 4,
+            "name": "Brad Harrison"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        },
+        {
+          "id": 11,
+          "title": "What are the main ideas that you have learnt in Module 1 - An introduction to project management?",
+          "question_text": "Question Text",
+          "display_order": "7",
+          "output_title": "Question ... Output",
+          "visible": [
+            
+          ],
+          "published": true,
+          "example_content": null,
+          "show_example_after_submit": true,
+          "save_history": true,
+          "show_history": true,
+          "show_response_clear": true,
+          "creation_date": "12/05/2020",
+          "last_modified_date": "12/05/2020",
+          "owner": {
+            "id": 7,
+            "name": "Sean Duffy"
+          },
+          "last_editor": {
+            "id": 4,
+            "name": "Brad Harrison"
+          },
+          "media": {
+            "id": 1,
+            "title": "Example Image",
+            "url_location": "Example Image",
+            "alt_text": "Example Image",
+            "media_type": [
+              {
+                "id": 1,
+                "title": "Image"
+              }
+            ]
+          },
+          "question_type": {
+            "id": 1,
+            "title": "Open Answer",
+            "description": "Description of short answer question type.",
+            "use_answers": false,
+            "short_name": "SA"
+          },
+          "response_options": [
+            
+          ],
+          "response_count": 0,
+          "my_responses": [
+            
+          ]
+        }
+      ]
+    }
+  }
