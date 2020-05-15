@@ -1,3 +1,5 @@
+/* css for CKEditor5 */
+
 .questionHeader {
     height: 107px;
     background: #c02424 0% 0% no-repeat padding-box;
@@ -104,10 +106,11 @@ img[alt="xIcon"] {
 #wordCount {
     position: relative;
     bottom: 290px;
-    left: 590px;
+    left: 600px;
     width: 120px;
     height: 24px;
     text-align: center;
+    border: none;
 }
 .saveButton {
     margin-top: 16px;
