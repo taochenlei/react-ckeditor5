@@ -6,37 +6,37 @@
 .questionHeader > div {
     align-self: center;
 }
-.codeOfConduct {
+/* .codeOfConduct {
     margin: auto;
     width: 550px;
     height: 80%;
-}
-.codeOfConduct h1{
+} */
+/* .codeOfConduct h1{
     font-family: 'Jotia', Arial, serif;
     font: Bold 32px/38px;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1; 
-}
-.codeOfConduct p {
+} */
+/* .codeOfConduct p {
     font-family: 'Roboto', Arial, serif;
     font: Regular 16px/21px;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
-}
+} */
 .griffithLogo {
     margin-right: 32px;
 }
 
 .questionSection {
     display: flex;
-    height: 833px;
+    min-height: 833px;
     flex-direction: column;
     align-items: center;
 }
 .questionSection > * ,
-.examplerAnswer > *{
+.examplerAnswer > * > *{
     width: 720px;
 }
 .questions {
@@ -57,12 +57,27 @@
     opacity: 0.8;
 }
 .examplerAnswer {
+    min-height: 514.7px;
+    flex-grow: 1;
+    width: 100%;
+    position: relative;
+
+}
+#animation {
     background: #F1F1F1;
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    bottom: 0px;
+    animation: mymove;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes mymove {
+    from {height: 0px;}
+    to {height: 100%;}
 }
 img[alt="xIcon"] {
     width: 14px;
@@ -72,14 +87,14 @@ img[alt="xIcon"] {
     right: 24px;
     cursor: pointer;
 }
-.examplerAnswer h1 {
+#animation h1 {
     margin-top: 40px;
     font: Bold 20px/26px Roboto;
     letter-spacing: 0px;
     color: #292929;
     opacity: 0.8;
 }
-.examplerAnswer p {
+#animation p {
     font: Regular 16px/24px Roboto;
     letter-spacing: 0px;
     color: #292929;
@@ -129,6 +144,7 @@ img[alt="xIcon"] {
 }
 .gap {
     flex-grow: 1;
+    min-height: 100px;
 }
 .lockBar {
     background: #E7E7E7;

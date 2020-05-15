@@ -1,4 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+
 import './CKEditor5.css';
 import GRIFFITH_LOGO from './assets/Griffith Logo.png';
 import LOCK_ICN from './assets/lock_icn.svg';
@@ -8,6 +10,17 @@ import xIcon from './assets/xIcon.svg';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@jesse541/ckeditor5-build-classic';
+
+// const QuestionSetHeader = styled.div`
+//     ${shadow};
+//     ${zIndex4};
+//     font-family: ${(props) => props.theme.font.family.foundrySterling};
+//     color: #ffffff;
+//     font-weight: 700;
+//     padding: 10px;
+//     border-radius: 0 0 3px 3px;
+//     background: ${(props) => props.theme.color.red};
+// `;
 
 const CKeditor5 = (props) => {
     const defaultState = {
@@ -83,6 +96,9 @@ const CKeditor5 = (props) => {
         display: (examplerAnswer && !state.showExamplerAnswer) ? 'block' : 'none',
         cursor: my_responses ? 'pointer' : 'auto'
     };
+    const gapStyle = {
+        display: (!state.showExamplerAnswer) ? 'block' : 'none',
+    };
 
     return (
         <div className='multiQuestionsView'>
@@ -105,9 +121,11 @@ const CKeditor5 = (props) => {
                 </div>
 
                 <div className='examplerAnswer' style={examplerAnswerStyle}>
-                    <img src={xIcon} alt="xIcon" onClick={clickCloseExampleAnswer} />
-                    <h1>Exemplar Answer</h1>
-                    <p>{state.questions[state.currentQuestionId].example_content}</p>
+                    <div id='animation' >
+                        <img src={xIcon} alt="xIcon" onClick={clickCloseExampleAnswer} />
+                        <h1>Exemplar Answer</h1>
+                        <p>{state.questions[state.currentQuestionId].example_content}</p>
+                    </div>
                 </div>
 
                 <div className='ckeditor' style={ckeditorStyle}>
@@ -148,7 +166,7 @@ const CKeditor5 = (props) => {
                     <p id='wordCount'>{`${state.currentWords} words`}</p>
                 </div>
 
-                <div className='gap'></div>
+                <div className='gap' style={gapStyle} ></div>
 
                 <div className='lockBar' style={lockBarStyle} onClick={clickShowExamplerAnswer} >
                     <div className='lock'>
