@@ -34,8 +34,23 @@ const CKeditor5 = (props) => {
     }
     const [state, setState] = useState(defaultState);
 
+    const getNumberOfAnsweredQuestion = (questions) => {
+        var numberOfAnsweredQuestion = 0;
+        for (var i = 0; i < questions.length; i++) {
+            if (questions[i].my_responses[0]) {
+                numberOfAnsweredQuestion += 1
+            }
+        }
+        return numberOfAnsweredQuestion
+    }
+
     useEffect(() => {
-        setState({...state, questions: props.questionSet.questions, isLoading: false})
+        setState({
+            ...state, 
+            questions: props.questionSet.questions, 
+            isLoading: false,
+            numberOfAnsweredQuestion: getNumberOfAnsweredQuestion(state.questions)
+        })
     }, [state.isLoading]);
 
     const clickCloseExampleAnswer = () => {
@@ -50,6 +65,7 @@ const CKeditor5 = (props) => {
             const answer = {answer: currentAnswer}
             questions[state.currentQuestionId].my_responses.unshift(answer);
             // setState({...state, questions})
+            setState({...state, numberOfAnsweredQuestion: getNumberOfAnsweredQuestion(state.questions)})
         }
     }
 
@@ -57,23 +73,16 @@ const CKeditor5 = (props) => {
         const my_responses = state.questions[state.currentQuestionId].my_responses;
         if (my_responses) {
             setState({...state, showExamplerAnswer: true})
-        } else {
-            console.log('can not show exampler answer')
         }
     }
 
     const nextQuestionId = (way) => {
+        setState((state) => ({...state, currentData: null}))
         const newID = way === 'up' ? state.currentQuestionId - 1 : state.currentQuestionId + 1;
         if (newID >= 0 && newID < state.questions.length) {
-            setState((state) => ({...state, currentQuestionId: newID, currentData: '', showExamplerAnswer: false}))
-            console.log(`current question id is ${defaultState.currentQuestionId}, new question id is ${newID}`)
+            setState((state) => ({...state, currentQuestionId: newID, currentData: null, showExamplerAnswer: false}))
         }
     }
-
-    // const updateWrodCount = (stats) => {
-    //     const currentWords = stats.words;
-    //     setState(state => ({...state, currentWords}))
-    // }
 
     console.log('this is state: ', state);
 
@@ -99,6 +108,10 @@ const CKeditor5 = (props) => {
     const gapStyle = {
         display: (!state.showExamplerAnswer) ? 'block' : 'none',
     };
+    const completePercent = parseInt(state.numberOfAnsweredQuestion / state.questions.length * 100)
+    const myBarStyle = {
+        width: `${completePercent}%`
+    }
 
     return (
         <div className='multiQuestionsView'>
@@ -146,7 +159,11 @@ const CKeditor5 = (props) => {
                                 }
                             }
                         }}
-                        data={state.questions[state.currentQuestionId].my_responses[0] ? state.questions[state.currentQuestionId].my_responses[0].answer : '' }
+                        data={
+                            state.questions[state.currentQuestionId].my_responses[0] ? 
+                            state.questions[state.currentQuestionId].my_responses[0].answer :
+                            (state.currentData ? state.currentData : '') 
+                        }
                         onInit={ editor => {
 
                         } }
@@ -177,26 +194,26 @@ const CKeditor5 = (props) => {
             </div>
 
             <div className='footer'>
-                    <div className='progressBar'>
-                        <div className='progressBar1'>
-                            <img src={UP_ARROW} alt="Up Arrow" onClick={() => nextQuestionId('up')} />
-                            <img src={DOWN_ARROW} alt="Down Arrow" onClick={() => nextQuestionId('down')} />
-                        </div>
+                <div className='progressBar'>
+                    <div className='progressBar1'>
+                        <img src={UP_ARROW} alt="Up Arrow" onClick={() => nextQuestionId('up')} />
+                        <img src={DOWN_ARROW} alt="Down Arrow" onClick={() => nextQuestionId('down')} />
+                    </div>
 
-                        <div className='progressBar2'>
-                            <p>{`10% completed (1/${state.questions.length})`}</p>
-                            <div className='progress'>
-                                <div className='progress-bar' role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div className='progressBar3'>
-                            <button className='saveContinueButton' onClick={() => nextQuestionId('down')} >
-                                <p>Next</p>
-                            </button>
+                    <div className='progressBar2'>
+                        <p>{`${completePercent}% completed (${state.numberOfAnsweredQuestion}/${state.questions.length})`}</p>
+                        <div id="myProgress">
+                            <div id="myBar" style={myBarStyle}></div>
                         </div>
                     </div>
+
+                    <div className='progressBar3'>
+                        <button className='saveContinueButton' onClick={() => nextQuestionId('down')} >
+                            <p>Next</p>
+                        </button>
+                    </div>
                 </div>
+            </div>
 
         </div>
     );
